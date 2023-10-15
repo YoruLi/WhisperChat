@@ -31,7 +31,7 @@ export default function Auth({ login }: { login: boolean }) {
         <section className="flex flex-col gap-4 p-4 w-full">
           <form
             className="flex flex-col items-center w-full gap-4"
-            onSubmit={handleSubmit}
+            onSubmit={(e) => handleSubmit(e)}
           >
             <div className="relative group  w-full ">
               <input

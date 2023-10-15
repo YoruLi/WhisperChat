@@ -80,39 +80,43 @@ export default function SuggestedForYou({
                 </div>
               </div>
 
-              {data
-                .slice(0, 3)
-                .map(({ id, email, full_name, profile_picture }) => {
-                  return (
-                    <div
-                      key={id}
-                      className="flex flex-shrink-0  gap-4 justify-between items-center "
-                    >
-                      <div className="flex gap-4 items-center w-full">
-                        <div className="">
-                          <ProfilePicture
-                            email={email}
-                            profile_picture={profile_picture}
-                          />
-                        </div>
-                        <div className="overflow-hidden w-full">
-                          <p className="text-sm font-medium chill:text-slate-200 light:text-slate-900 truncate">
-                            {full_name ?? "@" + email.split("@")[0]}
-                          </p>
-                          <p className="text-xs font-medium text-slate-500 truncate">
-                            {email}
-                          </p>
-                        </div>
-                        <div>
-                          <FollowButton
-                            session_id={session?.user.id}
-                            user_id={id}
-                          />
+              {data.length !== 0 ? (
+                data
+                  .slice(0, 3)
+                  .map(({ id, email, full_name, profile_picture }) => {
+                    return (
+                      <div
+                        key={id}
+                        className="flex flex-shrink-0  gap-4 justify-between items-center "
+                      >
+                        <div className="flex gap-4 items-center w-full">
+                          <div className="">
+                            <ProfilePicture
+                              email={email}
+                              profile_picture={profile_picture}
+                            />
+                          </div>
+                          <div className="overflow-hidden w-full">
+                            <p className="text-sm font-medium chill:text-slate-200 light:text-slate-900 truncate">
+                              {full_name ?? "@" + email.split("@")[0]}
+                            </p>
+                            <p className="text-xs font-medium text-slate-500 truncate">
+                              {email}
+                            </p>
+                          </div>
+                          <div>
+                            <FollowButton
+                              session_id={session?.user.id}
+                              user_id={id}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+              ) : (
+                <span className="text-center">No hay sugerencias para ti</span>
+              )}
 
               {data.length > 3 ? (
                 <Link href={`/suggested`} className="text-current text-xs ">

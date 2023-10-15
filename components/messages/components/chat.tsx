@@ -54,9 +54,8 @@ export default function Chat({
           table: "messages",
         },
         ({ new: message }) => {
-          console.log(message);
           queryClient.invalidateQueries(["messages"]);
-          queryClient.invalidateQueries(["chats"]);
+          queryClient.invalidateQueries(["chats", senderId]);
         }
       )
       .subscribe();
