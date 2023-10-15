@@ -1,0 +1,439 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    height: 100vh;
+    height: 100%;
+  }
+
+  svg {
+    fill: inherit;
+    stroke: inherit;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dark {
+    background-color: #000 !important;
+  }
+
+  .chill {
+    background-color: #181920 !important;
+  }
+
+  .light {
+    background-color: #fff !important;
+  }
+  select::-ms-expand {
+    color: transparent;
+  }
+
+  select {
+    outline: none;
+  }
+
+  .dark option {
+    background-color: black;
+  }
+  .light option {
+    background-color: white;
+  }
+  .chill option {
+    background-color: #181920;
+  }
+}
+
+@layer components {
+  .bg-current-darker {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      currentColor;
+  }
+
+  .default {
+    color: #40f5c8;
+    fill: #40f5c8;
+    stroke: #40f5c8;
+    border-color: #40f5c8 !important;
+  }
+  .rose {
+    color: #ef6191;
+    fill: #ef6191;
+    stroke: #ef6191;
+    border-color: #ef6191 !important;
+  }
+  .violet {
+    color: #7756ff;
+    fill: #7756ff;
+    stroke: #7756ff;
+    border-color: #7756ff !important;
+  }
+  .orange {
+    color: #ffc107;
+    fill: #ffc107;
+    stroke: #ffc107;
+    border-color: #ffc107 !important;
+  }
+  .green {
+    color: #38ef7d;
+    fill: #38ef7d;
+    stroke: #38ef7d;
+    border-color: #38ef7d !important;
+  }
+  .blue {
+    color: #2196f3;
+    fill: #2196f3;
+    stroke: #2196f3;
+    border-color: #2196f3 !important;
+  }
+
+  .default .fill-darker {
+    stroke: transparent;
+    fill: #0f6b54 !important;
+  }
+  .rose .fill-darker {
+    stroke: transparent;
+    fill: #6f1332;
+  }
+  .violet .fill-darker {
+    stroke: transparent;
+    fill: #281379ff;
+  }
+  .orange .fill-darker {
+    stroke: transparent;
+    fill: #88690b;
+  }
+  .green .fill-darker {
+    stroke: transparent;
+    fill: #127839;
+  }
+
+  .blue .fill-darker {
+    stroke: transparent;
+    fill: #113e63 !important;
+  }
+
+  .like {
+    fill: inherit !important;
+    stroke: inherit !important;
+    color: inherit !important;
+    animation: 0.6s like ease-in-out;
+  }
+
+  .light .like {
+    fill: black !important;
+    stroke: black !important;
+    color: black !important;
+    animation: 0.6s like ease-in-out;
+  }
+
+  @keyframes like {
+    0% {
+      opacity: 0;
+      scale: 0;
+    }
+
+    15% {
+      opacity: 1;
+      scale: 1;
+    }
+
+    30% {
+      opacity: 1;
+      scale: 0.85;
+    }
+
+    60%,
+    80% {
+      opacity: 1;
+      scale: 0.95;
+    }
+
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  .container {
+    display: none;
+    position: sticky;
+    top: 0;
+    padding: 0 1.8rem 0 1.8rem;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+  }
+
+  :root {
+    --bg-color: hsl(0, 0%, 0%);
+    --typewriterSpeed: 2s;
+    --typewriterCharacters: 12;
+  }
+
+  .one {
+    grid-template-columns: 1fr;
+  }
+
+  .one img {
+    max-height: 700px;
+  }
+
+  .two {
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .two img {
+    aspect-ratio: 0.85 / 1;
+  }
+
+  .three {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "first second"
+      "first third";
+    gap: 2px;
+  }
+
+  .three img:nth-of-type(1) {
+    grid-area: first;
+    aspect-ratio: 0.85 / 1;
+  }
+
+  .three img:nth-of-type(2) {
+    grid-area: second;
+    aspect-ratio: 1.76 / 1;
+  }
+
+  .three img:nth-of-type(3) {
+    grid-area: third;
+    aspect-ratio: 1.76 / 1;
+  }
+
+  .four {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "first second"
+      "third fourth";
+    gap: 2px;
+  }
+
+  .four img:nth-of-type(1) {
+    grid-area: first;
+    aspect-ratio: 3 / 1;
+  }
+
+  .four img:nth-of-type(2) {
+    grid-area: second;
+    aspect-ratio: 1.76 / 1;
+  }
+
+  .four img:nth-of-type(3) {
+    grid-area: third;
+    aspect-ratio: 1.76 / 1;
+  }
+
+  .four img:nth-of-type(4) {
+    grid-area: fourth;
+    aspect-ratio: 1.76 / 1;
+  }
+
+  .type_wrriter::before,
+  .type_wrriter::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .type_wrriter::before {
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards;
+  }
+
+  .type_wrriter::after {
+    width: 0.14em;
+    background: rgb(106, 105, 105);
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+      blink 750ms steps(var(--typewriterCharacters)) infinite;
+  }
+
+  .switchboard .light {
+    width: 1px;
+    height: 1px;
+    border-radius: 9999px;
+    position: relative;
+    transition: transform var(--transition-duration) ease;
+  }
+
+  .switchboard .light:after,
+  .switchboard .light:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    transition: opacity var(--transition-duration) ease;
+  }
+
+  .switchboard .light:before {
+    /* Medium */
+    background: #40f5c8;
+    box-shadow: 0px 0px 2px 1px rgba(50, 145, 255, 0.25);
+  }
+
+  .switchboard .light:after {
+    /* High */
+    background: #ffffff;
+    box-shadow: 0px 0px 1px 1px rgba(0, 255, 162, 0.8),
+      0px 0px 2px 1px rgba(30, 200, 147, 0.25);
+  }
+  .switchboard .light[data-state="off"] {
+    background: #707070;
+  }
+
+  .switchboard .light[data-state="medium"]:before {
+    opacity: 1;
+  }
+
+  .switchboard .light[data-state="high"]:after {
+    opacity: 1;
+  }
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #d1d5db;
+  }
+  em-emoji-picker {
+    --background-rgb: 85, 170, 255;
+    --category-icon-size: 22px;
+    --color-border-over: rgba(0, 0, 0, 0.1);
+    --color-border: rgba(0, 0, 0, 0.115);
+    --font-size: 13px;
+    --rgb-accent: 64, 245, 200;
+    --rgb-background: 30, 31, 39;
+    --rgb-input: 255, 235, 235;
+    height: 280px;
+    max-height: 280%;
+    width: 100%;
+  }
+
+  .animate {
+    animation: down 0.3s ease;
+  }
+
+  @keyframes down {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @font-face {
+    font-family: "EmojiMart";
+    src: url("./fonts/seguiemj.ttf") format("truetype");
+  }
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #282828 transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    @apply w-[9px] h-[7.5px];
+  }
+
+  .scrollbar-main::-webkit-scrollbar {
+    @apply w-[6px] h-[7.5px];
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply border-[2px] border-solid border-transparent bg-[#1b1e28]   bg-clip-content;
+  }
+
+  .scrollbar-main::-webkit-scrollbar-thumb {
+    @apply border-[2px] border-solid border-transparent bg-slate-700  bg-clip-content;
+  }
+
+  .scrollbar::-webkit-scrollbar-track,
+  .scrollbar-main::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  input[type="text"]:focus ~ .input-text,
+  input[type="text"]:not(:placeholder-shown) ~ .input-text {
+    @apply text-emerald-400 transform -translate-y-6 -translate-x-2 scale-90;
+  }
+
+  input[type="email"]:focus ~ .input-text,
+  input[type="email"]:not(:placeholder-shown) ~ .input-text {
+    @apply text-emerald-400 transform -translate-y-6 -translate-x-2 scale-90;
+  }
+
+  input[type="password"]:focus ~ .input-text,
+  input[type="password"]:not(:placeholder-shown) ~ .input-text {
+    @apply text-emerald-400 transform -translate-y-6 -translate-x-2 scale-90;
+  }
+
+  @font-face {
+    font-family: "Alegreya";
+    src: url("./fonts/Alegreya-Italic.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Anima";
+    src: url("./fonts/Anima/Arima-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Anima";
+    src: url("./fonts/Anima/Arima-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Anima";
+    src: url("./fonts/Anima/Arima-Bold.ttf") format("truetype");
+  }
+}
