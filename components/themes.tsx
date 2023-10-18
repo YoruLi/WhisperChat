@@ -3,28 +3,36 @@
 import React from "react";
 
 type Props = {
-    handler: any;
-    currentTheme: string | undefined;
+  handler: any;
+  currentTheme: string | undefined;
 };
 
 export default function Themes({ handler, currentTheme }: Props) {
-    const THEMES = ["dark", "light", "chill"];
+  const THEMES = ["dark", "light", "chill"];
 
-    return (
-        <fieldset aria-label="Color options" data-testid={`color-fieldset`} className="w-full flex items-center justify-center text-center">
-            <legend className="dark:text-slate-400 chill:text-slate-400 light:text-black">Choose a theme</legend>
-            <select
-                className="flex gap-3 bg-transparent cursor-pointer lg:max-w-lg max-w-[90%] w-full text-center  appearance-none  border border-slate-600  rounded-md px-4 py-1.5"
-                id="colors"
-                value={currentTheme}
-                onChange={e => handler(e.target.value)}
-            >
-                {THEMES.map(value => (
-                    <option value={value}>{value}</option>
-                ))}
-            </select>
-        </fieldset>
-    );
+  return (
+    <fieldset
+      aria-label="Color options"
+      data-testid={`color-fieldset`}
+      className="w-full flex items-center justify-center text-center"
+    >
+      <legend className="dark:text-slate-400 chill:text-slate-400 light:text-black">
+        Choose a theme
+      </legend>
+      <select
+        className="flex gap-3 bg-transparent cursor-pointer lg:max-w-lg max-w-[90%] w-full text-center  appearance-none  border border-slate-600  rounded-md px-4 py-1.5"
+        id="colors"
+        value={currentTheme}
+        onChange={(e) => handler(e.target.value)}
+      >
+        {THEMES.map((value) => (
+          <option key={value} value={value}>
+            {value}
+          </option>
+        ))}
+      </select>
+    </fieldset>
+  );
 }
 // <label
 //     onClick={e => handler(value.color)}
