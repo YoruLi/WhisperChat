@@ -1,6 +1,5 @@
 import CreatePost from "@/components/create-post";
 import Posts from "@/components/posts/Posts";
-import FaqSection from "@/components/faq-section";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 

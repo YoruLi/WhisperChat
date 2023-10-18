@@ -6,6 +6,7 @@ import useFilteredChats from "@/hooks/useFilteredChats";
 import { searchQuery } from "../../search/hooks/useSearch";
 import { useGetChats } from "../hooks/use-get-chats";
 import { Session } from "@supabase/auth-helpers-nextjs";
+
 export default function Chats({ session }: { session: Session | null }) {
   const {
     data: chats,
